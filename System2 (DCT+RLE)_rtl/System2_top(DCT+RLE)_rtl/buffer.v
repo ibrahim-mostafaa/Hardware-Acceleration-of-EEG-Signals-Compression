@@ -1,10 +1,10 @@
-module buffer(input clk, rst_n, en, input [12:0]din0,din1,din2,din3,din4,din5,din6,din7, 
-output reg [12:0] dout);
+module buffer(input clk, rst_n, en, input [11:0]din0,din1,din2,din3,din4,din5,din6,din7, 
+output reg [11:0] dout);
 
 
 logic [2:0]  counter = 0; 
 
-reg [12:0] FIFO [0:7]; 
+ reg [11:0] FIFO [0:7]; 
 assign FIFO[0] = din0;
 assign FIFO[1] = din1;
 assign FIFO[2] = din2;
@@ -18,7 +18,7 @@ always@(posedge clk or negedge rst_n) begin
 
  if (!rst_n) begin 
 counter = 0; 
-dout = 13'b0;
+dout = 12'b0;
 end
 
 else if (en) begin 
